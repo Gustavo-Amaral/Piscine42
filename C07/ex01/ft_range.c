@@ -6,7 +6,7 @@
 /*   By: gamaral <gamaral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:15:41 by gamaral           #+#    #+#             */
-/*   Updated: 2023/02/18 21:54:24 by gamaral          ###   ########.fr       */
+/*   Updated: 2023/02/19 16:58:22 by gamaral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ int	*ft_range(int min, int max)
 	int	diff;
 	int	i;
 
-	if (min > max)
+	if (min >= max)
 		return (0);
 	i = 0;
 	diff = max - min;
-	sup = malloc(sizeof(int) * (diff - 1));
-	while (i < diff)
+	sup = malloc(sizeof(int) * (diff));
+	if (!sup)
+		return (0);
+	while (min < max)
 	{
 		sup[i] = min;
 		min++;

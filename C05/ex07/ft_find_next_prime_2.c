@@ -1,74 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_find_next_prime.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamaral <gamaral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 17:44:00 by gamaral           #+#    #+#             */
-/*   Updated: 2023/02/19 14:46:05 by gamaral          ###   ########.fr       */
+/*   Created: 2023/02/19 21:24:53 by gamaral           #+#    #+#             */
+/*   Updated: 2023/02/19 21:24:53 by gamaral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-int	check_upper_numbers(int nb, int i, int check)
+int	ft_is_prime(int nb)
 {
-	while (i <= (nb / 3))
-	{
-		if ((nb % i) == 0)
-		{
-			check = 0;
-			break ;
-		}
-		else
-			check = 1;
-		i++;
-	}
-	return (check);
-}
+	int	a;
+	int	b;
 
-int	check_prime(int nb, int i, int check)
-{
-	if (nb <= 50)
+	a = nb;
+	b = 2;
+	if (a <= 1)
+		return (0);
+	while (b <= a / b)
 	{
-		while (i <= (nb / 2))
-		{
-			if ((nb % i) == 0)
-			{
-				check = 0;
-				break ;
-			}
-			else
-				check = 1;
-			i++;
-		}
+		if (a % b == 0)
+			return (0);
+		b++;
 	}
-	else
-		check = check_upper_numbers(nb, i, check);
-	return (check);
+	return (1);
 }
 
 int	ft_find_next_prime(int nb)
 {
-	int	i;
-	int	check;
-
-	check = 0;
-	if (nb <= 1)
-		return (2);
-	else if (nb == 2)
-		return (2);
-	else if (nb == 3)
-		return (3);
-	while (!check)
-	{
-		i = 2;
-		check = check_prime(nb, i, check);
-		if (check)
-			break ;
+	while (ft_is_prime(nb) == 0)
 		nb++;
-	}
 	return (nb);
 }
 

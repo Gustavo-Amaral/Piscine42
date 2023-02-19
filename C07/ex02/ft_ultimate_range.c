@@ -6,7 +6,7 @@
 /*   By: gamaral <gamaral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 21:56:00 by gamaral           #+#    #+#             */
-/*   Updated: 2023/02/18 22:01:56 by gamaral          ###   ########.fr       */
+/*   Updated: 2023/02/19 16:58:51 by gamaral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,31 @@
 
 int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	diff;
-	int	i;
-	int	j;
+	int		*sup;
+	int		diff;
+	int		i;
 
-	if (min > max)
-		return (0);
 	i = 0;
 	diff = max - min;
-	range = malloc(sizeof(int) * (diff - 1));
-	while (i < diff)
+	if (min >= max)
 	{
-		j = 0;
-		while (j < diff)
-		{
-			range[i][j] = min;
-			min++;
-			j++;
-		}
-		i++;
+		sup = 0;
+		return (0);
 	}
-	return (range);
+	sup = malloc(sizeof(int) * (diff));
+	if (!sup)
+		return (-1);
+	while (min < max)
+	{
+		sup[i] = min;
+		i++;
+		min++;
+	}
+	*range = sup;
+	return (i);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int	**str;
 	int	min;
@@ -57,3 +58,4 @@ int	main(void)
 	free(str);
 	return (0);
 }
+ */

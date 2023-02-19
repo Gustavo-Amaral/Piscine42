@@ -6,30 +6,24 @@
 /*   By: gamaral <gamaral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 18:12:08 by gamaral           #+#    #+#             */
-/*   Updated: 2023/02/19 18:13:26 by gamaral          ###   ########.fr       */
+/*   Updated: 2023/02/19 22:11:58 by gamaral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
+#ifndef __FT_BOOLEAN_H__
 
-#include "ft_boolean.h"
-void ft_putstr(char *str)
-{
-	while (*str)
-	write(1, str++, 1);
-}
+#define __FT_BOOLEAN_H__
 
-t_bool ft_is_even(int nbr)
-{
-	return ((EVEN(nbr)) ? TRUE : FALSE);
-}
+#include <unistd.h>
 
-int main(int argc, char **argv)
-{
-	(void)argv;
-	if (ft_is_even(argc - 1) == TRUE)
-		ft_putstr(EVEN_MSG);
-	else
-		ft_putstr(ODD_MSG);
-	return (SUCCESS);
-}
+#define EVEN_MSG	"I have an even number of arguments.\n"
+#define ODD_MSG		"I have an odd number of arguments.\n"
+#define TRUE		1
+#define FALSE		0
+#define SUCCESS		0
+#define EVEN(arg)	(arg % 2)
+
+typedef int	t_bool;
+
+#endif

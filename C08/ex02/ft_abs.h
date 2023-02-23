@@ -6,15 +6,14 @@
 /*   By: gamaral <gamaral@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 22:14:16 by gamaral           #+#    #+#             */
-/*   Updated: 2023/02/19 22:18:19 by gamaral          ###   ########.fr       */
+/*   Updated: 2023/02/21 22:04:33 by gamaral          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_ABS_H
 
-#ifndef __FT_ABS__
+# define FT_ABS_H
 
-#define __FT_ABS__
-
-#define ABS(Value)	(Value > 0 ? Value : -Value)
+# define ABS(Value)	(Value > 0 ? Value : -Value)
 
 #endif
